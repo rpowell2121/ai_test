@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     );
 
     // Store in Pinecone
-    const index = pinecone.index(process.env.PINECONE_INDEX || 'docs');
+    const index = pinecone.index('docs');
     
     const vectors = embeddings.map((embedding, i) => ({
       id: `${file.name}-chunk-${i}`,
