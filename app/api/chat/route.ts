@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     });
 
     // 2. Search Pinecone for relevant documents
-    const index = pinecone.index(process.env.PINECONE_INDEX || 'docs');
+    const index = pinecone.index('docs');
     
     const searchResults = await index.query({
       vector: questionEmbedding.data[0].embedding,
