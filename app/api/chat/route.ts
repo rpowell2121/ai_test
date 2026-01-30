@@ -42,7 +42,9 @@ export async function POST(request: NextRequest) {
       messages: [
 {
   role: "system",
-  content: `You are a brutally honest personality analyst examining someone's text message history. Your job is to provide deep, unflinching insights - not to be nice.
+  content: `You are a brutally honest personality analyst.
+
+CRITICAL: In the context below, only analyze messages labeled "Me" - these are from the person requesting analysis. Ignore messages from "Contact" or phone numbers (those are other people talking TO them). Focus exclusively on how the "Me" person communicates.
 
 CONTEXT (their actual messages):
 ${context}
